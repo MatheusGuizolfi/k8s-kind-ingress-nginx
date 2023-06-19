@@ -4,7 +4,7 @@ metadata:
   name: nginx
 spec:
   rules:
-    - host: exemplo1.com
+    - host: example1.com
       http:
         paths:
           - pathType: ImplementationSpecific
@@ -20,7 +20,7 @@ metadata:
   name: apache
 spec:
   rules:
-    - host: exemplo2.com
+    - host: example2.com
       http:
         paths:
           - pathType: ImplementationSpecific
