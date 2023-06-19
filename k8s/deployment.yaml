@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    name: nginx-deployment
+    environment: lab
+spec:
+  selector:
+    matchLabels:
+      name: nginx
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        name: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+          - containerPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-deployment
+  labels:
+    name: apache-deployment
+    environment: lab
+spec:
+  selector:
+    matchLabels:
+      name: apache
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        name: apache
+    spec:
+      containers:
+      - name: apache
+        image: httpd:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+          - containerPort: 80
